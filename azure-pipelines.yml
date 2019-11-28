@@ -12,10 +12,10 @@ variables:
   azureSubscription: 'cfa4d200-6a38-48fe-9926-ccbf0d870eb5'
   
   # Web app name
-  webAppName: 'testwebappjava2019'
+  webAppName: 'tfjavadeploy'
 
   # Environment name
-  environmentName: 'testwebappjava2019'
+  environmentName: 'tfjavadeploy'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -60,7 +60,7 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: testwebappjava2019'
+            displayName: 'Azure Web App Deploy: tfjavadeploy'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
