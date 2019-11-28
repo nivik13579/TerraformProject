@@ -9,7 +9,7 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '08799089-17b6-4134-9961-2427be8a74f1'
+  azureSubscription: 'f3167a54-29be-4523-8189-0bc590352d2c'
   
   # Web app name
   webAppName: 'tfjavadeploy'
