@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "TFResource20192" {
 
 resource "azurerm_app_service_plan" "TFResource20192" {
   name                = "TFResource2019appserviceplan2"
-  location            = "${azurerm_resource_group.2TFResource2019.location}"
-  resource_group_name = "${azurerm_resource_group.2TFResource2019.name}"
+  location            = "${azurerm_resource_group.TFResource20192.location}"
+  resource_group_name = "${azurerm_resource_group.TFResource20192.name}"
   kind                = "Linux"
   sku {
     tier = "Standard"
@@ -16,9 +16,9 @@ resource "azurerm_app_service_plan" "TFResource20192" {
 
 resource "azurerm_app_service" "TFResource20192" {
   name                = "TFResource2019appservice2"
-  location            = "${azurerm_resource_group.2TFResource2019.location}"
-  resource_group_name = "${azurerm_resource_group.2TFResource2019.name}"
-  app_service_plan_id = "${azurerm_app_service_plan.TFResource2019.id}"
+  location            = "${azurerm_resource_group.TFResource20192.location}"
+  resource_group_name = "${azurerm_resource_group.TFResource20192.name}"
+  app_service_plan_id = "${azurerm_app_service_plan.TFResource20192.id}"
   site_config {
     java_version           = "1.8"
   }
