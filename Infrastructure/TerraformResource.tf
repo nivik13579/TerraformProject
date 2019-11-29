@@ -1,12 +1,12 @@
-resource "azurerm_resource_group" "TFResource20192" {
-  name     = "TFResource2019RG2"
+resource "azurerm_resource_group" "TestTerraform" {
+  name     = "TFResource20192RG"
   location = "West Europe"
 }
 
-resource "azurerm_app_service_plan" "TFResource20192" {
-  name                = "TFResource2019appserviceplan2"
-  location            = "${azurerm_resource_group.TFResource20192.location}"
-  resource_group_name = "${azurerm_resource_group.TFResource20192.name}"
+resource "azurerm_app_service_plan" "TestTerraform" {
+  name                = "TFResource20192appserviceplan"
+  location            = "${azurerm_resource_group.TestTerraform.location}"
+  resource_group_name = "${azurerm_resource_group.TestTerraform.name}"
   kind                = "Linux"
   sku {
     tier = "Standard"
@@ -14,11 +14,11 @@ resource "azurerm_app_service_plan" "TFResource20192" {
   }
 }
 
-resource "azurerm_app_service" "TFResource20192" {
-  name                = "TFResource2019appservice2"
-  location            = "${azurerm_resource_group.TFResource20192.location}"
-  resource_group_name = "${azurerm_resource_group.TFResource20192.name}"
-  app_service_plan_id = "${azurerm_app_service_plan.TFResource20192.id}"
+resource "azurerm_app_service" "TestTerraform" {
+  name                = "TFResource20192appservice"
+  location            = "${azurerm_resource_group.TestTerraform.location}"
+  resource_group_name = "${azurerm_resource_group.TestTerraform.name}"
+  app_service_plan_id = "${azurerm_app_service_plan.TestTerraform.id}"
   site_config {
     java_version           = "1.8"
   }
