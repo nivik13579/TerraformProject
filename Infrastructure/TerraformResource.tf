@@ -1,25 +1,27 @@
 resource "azurerm_resource_group" "TestNKTerraform" {
-  name     = "TestNKTerraformRG"
-  location = "West Europe"
+  name     = "${var.resource_group_name}"
+  location = "${var.region}"
 }
 
 resource "azurerm_app_service_plan" "TestNKTerraform" {
-  name                = "TestNKTerraformappserviceplan"
+  name                = "${var.appserviceplanname}"
   location            = "${azurerm_resource_group.TestNKTerraform.location}"
   resource_group_name = "${azurerm_resource_group.TestNKTerraform.name}"
-  kind                = "Linux"
+  kind                = "${var.appserviceplankind}"
+  reserved	      = "true"
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier = "${var.skutier}"
+    size = "${var.skusize}"
   }
 }
 
 resource "azurerm_app_service" "TestNKTerraform" {
-  name                = "TestNKTerraformappservice"
+  name                = "${var.appservicename}"
   location            = "${azurerm_resource_group.TestNKTerraform.location}"
   resource_group_name = "${azurerm_resource_group.TestNKTerraform.name}"
   app_service_plan_id = "${azurerm_app_service_plan.TestNKTerraform.id}"
   site_config {
-    java_version           = "1.8"
+    java_version           = "${var.appsvcjavaversion}"
+	always_on = "${var.appservicealwayson}"
   }
 }
